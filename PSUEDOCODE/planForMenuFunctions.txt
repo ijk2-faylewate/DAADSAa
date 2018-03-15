@@ -1,0 +1,70 @@
+FUNCTIONS NEEDED FOR MENU AND RUN
+
+tornementSelecter():
+	
+	INPUT FROM BUTTONS
+		TAC1_ROUND = 'A'
+		TAE21_ROUND = 'B'
+		TAW11_ROUND = 'C'
+		TBS2_ROUND = 'D'
+	RETURN INPUT FROM BUTTON PUSHED
+
+genderSelecter():
+	
+	INPUT FROM BUTTONS
+		female = 'f'
+		male = 'm'
+	RETURN INPUT FROM BUTTON PUSHED
+		
+manualSelect():
+
+	INPUT FROM BUTTONS
+		Yes = 'y'
+		No = 'n'
+	RETURN INPUT FROM BUTTON PUSHED
+
+playNextRound(playRound):
+
+	INPUT FROM BUTTON
+		Play next Round? = playRound + 1
+
+viewPrizeMoney():
+
+	INPUT FROM BUTTON
+		Yes = 'y'
+		No = 'n'
+	RETURN INPUT FROM BUTTON
+
+viewPointsFromCurrentRound():
+	
+	INPUT FROM BUTTON
+		Yes = 'y'
+		No = 'n'
+	RETURN INPUT FROM BUTTON
+
+viewOverallRank():
+	
+	INPUT FROM BUTTON
+		Yes = 'Y'
+		No = 'N'
+	RETURN INPUT FROM BUTTON
+
+exitSystem():
+	
+	INPUT FROM BUTTON
+		Yes = 'Y'
+		No = 'N'
+	RETURN INPUT FROM BUTTON
+
+wipeAllData():
+	
+	INPUT FROM BUTTON
+		Yes = Run wipe file/function
+		No = pass
+	RETURN INPUT FROM BUTTON
+
+	
+	
+
+ 
+

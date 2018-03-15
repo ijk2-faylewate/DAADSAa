@@ -1,0 +1,80 @@
+PSUDO FOR PRIZE MONEY
+
+FUNCTION calculatePrizeMoney TAKES (tornement, roundNumber, gender)
+	LIST currentWinnings
+    LIST tempDataList
+    LIST listOfWinners = currentWinners FROM tennisTools
+	
+	ELIF gender f or m:
+	tempPrizeFile = gender specific tempory FILE
+
+	OPEN FILE PRIZE_MONEY
+		FILL currentWinnings FROM FILE
+		
+	OPEN FILE tempPrizeFile
+		FILL tempDataList from FILE (list of players[i][0] and zero column [i][1])
+		
+		
+	ELIF tornement == tornement 1 or 2 or 3 or 4
+		low = lowest pay bracket associated with tornement selected FROM currentWinnings
+		mid = second lowest pay bracket associated with tornement selected FROM currentWinnings
+		runUp = pay bracket awarded to runner-up associated with tornement selected FROM currentWinnings
+		win = pay bracket awarded to winner of tornement selected FROM currentWinnings
+		
+	FOR ALL PLAYERS IN tempDataList
+		FOR ALL PLAYERS in listOfWinners
+			IF player in both lists
+				IF roundNumber == 2
+					INSERT low in tempDataList
+					POP zero
+				ELIF roundNumber == 3
+					INSERT mid in tempDataList
+					POP zero
+					
+				ELIF roundNumber == 4
+					INSERT runUp in tempDataList
+					POP zero
+					
+				ELIF roundNumber == 5
+					INSERT win in tempDataList
+					POP zero
+					
+	OPEN FILE tempPrizeFile
+		WRITE tempDataList to file 
+		
+END FUNCTION
+
+FUNCTION commitPrizeMoney TAKES (gender)
+	LIST fromRound
+	LIST toFile
+	
+	ELIF gender f or m 
+	tempPrizeFile and prizeFile = gender specific files
+	
+	OPEN FILE  tempPrizeFile
+		FILL fromRound
+
+	OPEN FILE prizeFile (overall file for prize money)
+		FILL toFile
+		
+	FOR length of toFile
+		FOR length of fromRound
+			IF player in fromRound = player in toFile
+			tempFromRound = old prize money fromRound
+			newScore = new prize money in toFile + tempFromRound (old + new)
+			INSERT newScore in toFile
+			POP old money
+	
+	OPEN FILE prizeFile
+		WRITE toFile to FILE
+		
+END FUNCTION
+
+FUNCTION clearTemporaryRoundFile TAKES (gender)
+	Simply reverts temp file back to list of players with a zero column
+END FUNCTION
+
+FUNCTION displayWinnings TAKES (gender)
+	READ gender specific prizeFile 
+	DISPLAY winnings SORTED in sortLists (quick sort)
+END FUNCTION

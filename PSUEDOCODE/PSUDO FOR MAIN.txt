@@ -1,0 +1,67 @@
+PSUEDO FOR MAIN
+
+WHILE system not stopped
+
+	FILL gender specific player LISTS 
+		listOfMalePlayers
+		listOfFeMalePlayers
+		
+	SELECT tornement
+	
+	SELECT gender
+	
+	CHECK if previous tornement of this type complete
+	
+	IF previous tornement complete
+		SELECT manual input y/n
+		
+		#START/INITIALIZE ROUND 1#
+		
+		ELIF gender f or m
+			listSelect = gender specific LIST of players ( or not if manual chosen)
+		
+		IF manual input chosen
+			listSelect = USER INPUT 
+		
+		PLAY MATCHES (set fixtures)
+		
+		ADD PLAYERS TO currentWinners (runRound)
+		
+		UPDATE rankPoints
+		UPDATE currentTornementPoints
+		CALCULTE prizeMoney
+		
+		MARK ROUND COMPLETE (writePreviousComplete)
+		
+	ELIF previous tornement not complete
+		
+		RESTART from round played prior to stop FROM tennisTools GLOBAL
+		
+		runRound
+	
+	WHILE tornement not complete
+		DISPLAY sorted LISTS (optional)
+		
+		#START/INITIALIZE NEXT ROUND#
+		
+		listSelect = currentWinners
+		
+		PLAY MATCHES (set fixtures)
+		
+		CLEAR currentWinners
+		
+		ADD NEW PLAYERS TO currentWinners (runRound)
+		
+		UPDATE rankPoints
+		UPDATE currentTornementPoints
+		CALCULTE prizeMoney
+		
+		MARK ROUND COMPLETE (writePreviousComplete)
+	
+	CLEAR TEMPORARY FILES 
+	COMMIT PRIZE MONEY
+	CLEAR currentWinners
+		
+	DISPLAY sorted LISTS (optional)
+	
+	EXIT system or not

@@ -1,0 +1,38 @@
+PSUEDO FOR SORT LISTS
+
+FUNCTION enterSorting TAKES (listToSort) (FUNCTION makes entry to quickSort less fiddly)
+	
+	quickSort(listToSort, firstElement of listToSort, lastElement of listToSort)
+	
+	DISPLAY sorted listToSort]
+
+END FUNCTION
+
+FUNCTION quickSort TAKES (listToSort,firstElement, lastElement)
+	
+	IF firstElement < lastElement
+		DEFINE splitpoint WITH partition(listToSort, firstElement, lastElement)
+		RECURSIVE CALL quickSort( half of listToSort to left side of splitpoint)
+		RECURSIVE CALL quickSort( half of listToSort to the right side of splitpoint)
+
+END FUNCTION
+
+FUNCTION partition TAKES (listToSort, firstElement of listToSort, lastElement of listToSort) (relative to splitpoint)
+	
+	DEFINE FLOAT pivot  (value of listToSort 'firstElement') 
+	DEFINE FLOAT leftVal (value of listToSort to right of listToSort 'firstElement' ) 
+	DEFINE FLOAT rightVal (value of lastElement of listToSort )
+	
+	INT left = firstElement + 1 (index position)
+	INT right = lastElement (index position)
+	
+	WHILE right not less than left (splitpoint found)
+		WHILE left index <= right index and value of left index >= pivot
+			MOVE left index right (inc)
+		WHILE value of right index <= pivot and right index >= left index
+			MOVE right index left (dec)
+			
+		SWAP VALUES ASSOCIATED WITH LEFT INDEX WITH VALUES ASSOCIATED WITH RIGHT INDEX
+	SWAP VALUES ASSOCIATED WITH firstElement WITH VALUES ASSOCIATED WITH RIGHT INDEX (define next split)
+	
+	RETURN RIGHT INDEX (splitpoint)

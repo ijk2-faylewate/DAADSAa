@@ -1,0 +1,61 @@
+PSUEDO FOR MANUAL INPUT
+
+FUNCTION userInputStack TAKES (gender, roundNumber)
+	LIST roundReturn
+
+	FILL gender specific player LISTS 
+		listOfMalePlayers
+		listOfFeMalePlayers
+		
+	LIST playerStack
+	
+	
+	ELIF gender f or m
+		IF roundNumber = 1
+			playerStack = gender specific listOfPlayers
+		ELSE
+			playerStack = currentWinners FROM tennisTools
+			
+		possibleScore = gender specific LIST in range maxScore FROM tennisTools GLOBAL
+		minScore = gender specific INT maxScore FROM tennisTools GLOBAL
+		
+	WHILE playerStack NOT EMPTY
+		
+		DISPLAY playerStack
+		
+		DETERMINE if player A or B (A = even list position)
+			IF player B chosen match played
+			
+		INPUT playerName FROM USER 
+		
+		REMOVE player FROM playerStack
+		ADD player TO roundReturn[index][0]
+	
+	WHILE acceptable score not chosen
+		INPUT score FROM USER
+			IF score FROM USER is not in possibleScore LIST 
+				REPEATE INPUT
+			ELSE
+				ADD score to roundReturn[index][1]
+	
+	IF player B chosen
+		
+		IF neither player A or B have a winning score
+			accept = FALSE 
+		
+		IF player A score == player B score OR accept == FALSE 
+			INSERT player B back in playerStack
+			POP player B from roundReturn
+			POP player B score from roundReturn
+			REPEATE player B choice and score
+		ELSE
+			advance to next match
+	
+	RETURN roundReturn TO MAIN
+			
+	
+				
+		
+		
+	
+	

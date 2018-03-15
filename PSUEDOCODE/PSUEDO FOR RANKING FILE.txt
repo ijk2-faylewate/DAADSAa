@@ -1,0 +1,94 @@
+PSUEDOCODE FOR RANKING FILE
+
+BASIC IDEA
+	Save overall points from last round.
+    Run new round
+    Read points from previous round to list
+    If winner, pop points from previous round
+    Insert new points to list
+    save new points to file.
+
+
+LIST copyOfOverallRank
+LIST copyOfPointsAwardedPerRound
+
+
+FUNCTION updateRankPoints TAKES (tornementName, roundNumber, genderOfPlayer)
+	
+	VARS:
+		LIST currentWinners == TAKES all players currenttly still in tornement FROM tennisTools
+		LIST tempPlayerList
+		LIST playerList
+		LIST tempDataList
+		LIST pointsList
+		
+		INT rankPoints
+		INT previousRoundPoints
+		
+		FLOAT difficultyPoints
+		FLOAT winnersDeduction
+		FLOAT tempScore
+		
+	ELIF tornementName == the name of one of the four tornements
+		ASSIGN difficultyPoints associated with tornementName
+	
+	OPEN FILE containing rankPoints:
+		LIST pointsReader = points assigned per round IN FILE
+
+	ELIF genderOfPlayer == 'm' or 'f':
+		FILE OVERALL_POINTS = points FILE associated with genderOfPlayer 
+	
+	ELIF roundNumber == round 1 to 5:
+		LIST rankPoints =  points associated with roundNumber at specific round
+		previousRoundPoints = points associated with previous round (with the exception of first round)
+		
+	multiply rankPoints by difficultyPoints
+	
+	winnersDeduction = previousRoundPoints * difficultyPoints 
+	
+	OPEN FILE OVERALL_POINTS
+		2D LIST tempDataList =  player names and previously assigned points from FILE
+	
+	FOR length of tempDataList:
+		playerList = player names from tempDataList
+		
+	tempPlayerList = players in playerList and currentWinners (i.e winners from round/ A intersection B)
+	
+	FOR length of tempDataList
+		FOR length of currentWinners
+			IF a player in currentWinners == a player in tempDataList in roundNumber one
+				tempScore =  previous score
+				INSERT tempScore + new score (from round just completed) into tempDataList
+				POP old score from tempDataList
+			ELIF as above in roundNumber == 2-4
+				tempScore = previous score
+				INSERT tempScore - winnersDeduction into tempDataList
+				POP old score from tempDataList
+			
+			ELIF as above in roundNumber == 5
+				INSERT rankPoints into tempDataList
+				POP old score from tempDataList
+	
+	OPEN FILE OVERALL_POINTS
+		WRITE tempDataList to FILE
+
+END FUNCTION
+
+FUNCTION updatePointsCurrentTornement TAKES (tornementName, roundNumber, genderOfPlayer)
+	
+	This function is the same as updateRankPoints, with the following exception; 
+	the points allocated here are only saved temporarily, and primarily just for display purposes
+	
+END FUNCTION	
+		
+FUNCTION clearTempFileForPastTornement TAKES (genderOfPlayer)
+	
+	ELIF GENDER m or f
+		select gender specific files
+	
+	read in players from playerList FILE 
+	write over temp FILE 
+	
+END FUNCTION
+	
+	

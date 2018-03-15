@@ -1,0 +1,49 @@
+PSUEDO FOR TENNIS TOOLS 
+
+LIST currentWinners
+
+FUNCTION fillPlayerList TAKES (nameOfReadFile, listToFill)
+	Generic function fills LISTS from FILE 
+END FUNCTION
+
+FUNCTION runRound TAKES (nameOfReadFile)
+	OPEN FILE anyResultsFile
+		DISPLAY anyResults
+		
+		IF score player A > score player B
+			ADD player A to currentWinners
+		ELSE
+			ADD player B to currentWinners
+END FUNCTION
+
+FUNCTION setFixtures TAKES (nameOfWriteFile, playerList, gender)
+
+	SHUFFLE playerList (randomize)
+	
+	INT halfLength = halfLength of playerList
+	
+	OPEN FILE nameOfWriteFile (results written to this file)
+	
+		ELIF gender f or m
+			FOR length halfLength
+				score = random score in range maxScore FROM tennisTools GLOBAL
+				
+				WRITE to FILE randomized score for player A and B
+END FUNCTION 
+
+FUNCTION checkIfPreviousComplete TAKES (tornement, gender)
+
+#Check tornement in file
+    Check if previous tornement complete = True
+    IF True, continue as normal
+    Else if FALSE use last round from round file to initiate next round
+END FUNCTION
+
+FUNCTION writePreviousComplete TAKES (tornement, gender, roundNumber)
+	Keep track of round, so if program ends before tornement has concluded, the program can start from stop point.
+	If tornement reaches end, reset check file
+END FUNCTION
+
+FUNCTION setGlobalsFromFile
+	Reads global values from file
+END FUNCTION

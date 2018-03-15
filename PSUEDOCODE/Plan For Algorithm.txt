@@ -1,0 +1,20 @@
+START SEASON 
+	FOR EACH TORNEMENT(1 -> 4)
+		1. Input score for each match (from file or input)
+			#Round 1 = 16 matches
+			#Round 2 = 8 matches
+			#Round 3 = 4 matches
+			#Round 4 = 2 matches
+			#Round 5 = 1 match
+		2. Display results ([Player A] [number of sets won] v [Player B] [number of sets won])
+		3. Update player position
+		4. Update ranking ( Rank = Tornement difficulty * Tornement placing )
+		5. Display ranking 
+	7. Accumulate winnings for each player.
+	6. Calculate prize money owed to a player
+
+Display final ranking.
+Rank players by money earned.
+
+END SEASON
+
